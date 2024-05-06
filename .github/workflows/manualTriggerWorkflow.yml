@@ -1,6 +1,12 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is triggering manually.
-on: [workflow_dispatch]
+on: 
+  workflow_dispatch:
+# Allows external webhook trigger
+  repository_dispatch:
+    types:
+      - webhook
+      
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
